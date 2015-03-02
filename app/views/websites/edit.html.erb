@@ -1,0 +1,8 @@
+<h2>Edit Website</h2>
+
+<%= form_for(@website) do |f| %>
+
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+
+  <%= f.submit "Save" %>
+<% end %>

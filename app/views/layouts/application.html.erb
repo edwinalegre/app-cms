@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+<style>
+<% @pages.each do |page| %>
+
+  <% @pages.sort_by{|page| page.position}.each_with_index do |page, index| %>
+
+#<%= page.link %> {  
+  background: <%= page.background %>;
+}
+/*#home {
+  background-image: url('http://images2.pixlis.com/background-image-vertical-lines-and-stripes-seamless-tileable-yellow-dark-orange-22r424.png');
+  background-size: repeat;
+}*/
+
+  <% end %>
+<% end %>
+
+</style>
+
+</head>
+<body>
+
+  <%= yield %>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+   $(document).ready(function(){
+     $(window).bind('scroll', function() {
+     var navHeight = $( window ).height() - 70;
+       if ($(window).scrollTop() > navHeight) {
+         $('nav').addClass('fixed');
+       }
+       else {
+         $('nav').removeClass('fixed');
+       }
+    });
+  });
+</script>
+
+</body>
+</html>

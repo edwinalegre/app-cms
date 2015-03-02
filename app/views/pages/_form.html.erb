@@ -1,0 +1,25 @@
+<ul>
+  <% @page.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+  <%= f.label(:name) %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label(:link) %><br>
+  <%= f.text_field :link %><br>
+
+  <%= f.label(:page_type) %><br>
+  <%= f.text_field :page_type %><br>
+
+  <%= f.label(:background) %><br>
+  <%= f.text_field :background %><br>
+
+  <%= f.label(:position) %><br>
+  <%= f.select(:position, 1..@page_count) %><br>
+
+  <%= f.label(:visible) %><br>
+  <%= f.check_box(:visible) %><br>
+
+  <%= f.hidden_field(:website_id, :value => @website.id) %>

@@ -1,0 +1,14 @@
+<h2>Manage Pages</h2>
+<ul>
+    <li><%= link_to "Create page", new_page_path %></li>
+</ul>
+
+<h2>Pages</h2>
+<ul>
+  <% @page.sort_by{|page| page.position}.each do |page| %>
+  <li>
+    <%= page.name %> <%= link_to "edit", edit_page_path(:id => page.id) %> | 
+    <%= link_to "manage sections", page_path(:id => page.id) %>
+  </li>
+  <% end %>
+</ul>

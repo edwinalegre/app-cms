@@ -1,0 +1,8 @@
+<h2>Create Section</h2>
+<%= form_for(:section, :url => {:action => 'create', :page_id => @page.id}) do |f| %>
+  
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+
+  <%= f.submit "Save" %>
+
+<% end %>

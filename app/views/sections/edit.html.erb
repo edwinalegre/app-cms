@@ -1,0 +1,10 @@
+<h2>Edit Pages</h2>
+
+<%= form_for(@page) do |f| %>
+
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+
+  <%= f.submit "Save" %>
+<% end %>
+
+<!-- , :url => {:action => 'update', :id => @page.id, :website_id => @website.id} -->

@@ -1,0 +1,22 @@
+<ul>
+  <% @section.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+  <%= f.label(:name) %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label(:section_type) %><br>
+  <%= f.text_field :section_type %><br>
+
+  <%= f.label(:content) %><br>
+  <%= f.text_area :content, size: "90%x10%" %><br>
+
+  <%= f.label(:position) %><br>
+  <%= f.select(:position, 1..@section_count) %><br>
+
+  <%= f.label(:visible) %><br>
+  <%= f.check_box(:visible) %><br>
+
+  <%= f.hidden_field(:page_id, :value => @page.id) %>

@@ -1,0 +1,42 @@
+<% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
+<a name="<%= page.link %>"></a>
+
+  <section id="<%= page.link %>">
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10">
+        <div class="jumbotron">
+          <div class="container">
+           <h1><%= page.name %></h1>
+          </div>
+        </div>
+        <% @sections.sort_by{|section| section.position}.each do |section| %>
+          <% if (section.page_id == page.id) %>
+            <div class="row">
+              <div class="container-fluid">
+                <%= section.content.html_safe %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+  </section>
+<% end %>
+
+<nav>
+  <ul>
+    <% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
+      <li><a href="#<%= page.link %>"><%= page.name %></a></li>
+    <% end %>
+  </ul>
+</nav>
+
+<footer>
+  <div class="footer">
+    Copyright © 2015. All Rights Reserved.
+  </div>
+</footer>
+
+<%= @websites.inspect %>

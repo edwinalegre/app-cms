@@ -1,0 +1,14 @@
+<h2>Manage Website</h2>
+<ul>
+  <% if @website %>
+    <li><%= link_to "Edit website", edit_website_path(@website) %></li>
+  <% else %>
+    <li><%= link_to "Create website", new_website_path %></li>
+  <% end %>
+
+  <% if @website %>
+    <li><%= link_to "Manage pages", pages_path %></li>
+    <li><%= link_to "Manage sections", sections_path %></li>
+  <% end %>
+</ul>
+

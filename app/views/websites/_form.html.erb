@@ -1,0 +1,8 @@
+<ul>
+  <% @website.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+  <%= f.label "Name:" %><br>
+  <%= f.text_field :name %><br>
