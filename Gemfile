@@ -42,6 +42,8 @@ gem 'acts_as_list', '~> 0.3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
 
   gem 'rspec-rails'
