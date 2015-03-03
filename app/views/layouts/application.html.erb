@@ -7,9 +7,6 @@
   <%= csrf_meta_tags %>
 
 <style>
-.logo{
-  float: right;
-}
 
 <% @pages.each do |page| %>
   <% @pages.sort_by{|page| page.position}.each_with_index do |page, index| %>
@@ -19,8 +16,6 @@
   }
   body {
     background-image: url('<%= @websites.backgroundimage %>');
-    background-repeat: no-repeat;
-    background-attachment: fixed;;
   }
 
   <% end %>
@@ -33,6 +28,8 @@
 
   <%= yield %>
 
+
+<% if @websites.theme == 'vertical' %>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script>
@@ -48,6 +45,7 @@
     });
   });
 </script>
+<% end %>
 
 </body>
 </html>

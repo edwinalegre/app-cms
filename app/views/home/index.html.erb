@@ -16,7 +16,7 @@
           </div>
           <% @sections.where(:visible => true).sort_by{|section| section.position}.each do |section| %>
             <% if (section.page_id == page.id) %>
-              <div class="row col-xs-6 <%= section.name %>">
+              <div class="row col-xs-<%= section.columns %> <%= section.name %>">
                 <div class="container-fluid">
                 <div class="well">
                   <%= section.content.html_safe %>
@@ -55,6 +55,20 @@
     </ul>
   </nav>
 
+  <% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
+  <a name="<%= page.link %>"></a>
+
+    <div id="<%= page.link %>">
+     <h1><%= page.name %><img src="/assets/<%= @websites.logo %>" width="150" class="logo" ></h1>
+     <h4><em>"Where everyone is someone special"</em></h4>
+    <% @sections.where(:visible => true).sort_by{|section| section.position}.each do |section| %>
+      <% if (section.page_id == page.id) %>
+        <%= section.content.html_safe %>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
+
   <footer>
     <div class="footer">
       Copyright © 2015. All Rights Reserved.
@@ -62,5 +76,3 @@
   </footer>
 
 <% end %>
-
-<%= @websites.inspect %>

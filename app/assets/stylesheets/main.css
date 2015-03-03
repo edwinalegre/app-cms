@@ -12,6 +12,8 @@ a {text-decoration: none;}
 body {
   font-family: 'open-sans-bold'; 
   font-size: 18px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 nav {
@@ -60,6 +62,9 @@ footer {
 }
 .well {
   opacity: 0.85;
+}
+.logo{
+  float: right;
 }
 
 @media only screen and (max-width: 520px) {

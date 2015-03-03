@@ -7,14 +7,22 @@
   <%= f.label(:name) %><br>
   <%= f.text_field :name %><br>
 
-  <%= f.label(:section_type) %><br>
-  <%= f.text_field :section_type %><br>
+  <%= f.label "Section Type:" %><br>
+  <% if @section.section_type %>
+    <%= f.select :section_type, options_for_select(["Select One", "content", "calendar", "reviews"], :disabled => ["Select One"], :selected => @section.section_type) %><br>
+  <% else %>
+    <%= f.select :section_type, options_for_select(["Select One", "content", "calendar", "reviews"], :disabled => ["Select One"]) %><br>
+    <!-- , :selected => params[:section][:section_type] -->
+  <% end %>
 
   <%= f.label(:content) %><br>
   <%= f.text_area :content, size: "90%x10%" %><br>
 
   <%= f.label(:position) %><br>
   <%= f.select(:position, 1..@section_count) %><br>
+
+  <%= f.label(:columns) %><br>
+  <%= f.select(:columns, 1..12) %><br>
 
   <%= f.label(:visible) %><br>
   <%= f.check_box(:visible) %><br>
