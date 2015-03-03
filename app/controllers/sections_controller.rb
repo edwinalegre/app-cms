@@ -4,6 +4,7 @@ class SectionsController < ApplicationController
 
   def index
     @section = Section.all
+    @page = Page.find(params[:id])
     @website = Website.first
   end
 
@@ -24,9 +25,18 @@ class SectionsController < ApplicationController
   end
 
   def edit
+    @section = Section.find(params[:id])
+    @section_count = Section.count
   end
 
   def update
+    @section = Section.find(params[:id])
+    if @section.update(form_params)
+      flash[:success] = "Successful!"
+      redirect_to pages_path
+    else
+      render :edit
+    end
   end
 
   private

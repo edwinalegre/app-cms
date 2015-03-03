@@ -6,6 +6,6 @@
 <h2>Sections</h2>
 <ul>
   <% @section.sort_by{|section| section.position}.each do |section| %>
-  <li><%= link_to (section.name), edit_section_path(:id => section.id) %></li>
+  <li><%= link_to (section.name), edit_section_path(:id => section.id,:page_id => page.id) %></li>
   <% end %>
 </ul>

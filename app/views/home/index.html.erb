@@ -1,43 +1,66 @@
-<% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
-<a name="<%= page.link %>"></a>
+<% if @websites.theme == 'vertical' %>
 
-  <section id="<%= page.link %>">
-    <div class="row">
-      <div class="col-xs-1"></div>
-      <div class="col-xs-10">
-        <div class="jumbotron">
-          <div class="container">
-           <h1><%= page.name %><img src="/assets/logo.png" width="150" class="logo" ></h1>
+  <% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
+  <a name="<%= page.link %>"></a>
 
-          </div>
-        </div>
-        <% @sections.sort_by{|section| section.position}.each do |section| %>
-          <% if (section.page_id == page.id) %>
-            <div class="row">
-              <div class="container-fluid">
-                <%= section.content.html_safe %>
-              </div>
+    <section id="<%= page.link %>">
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+          <div class="jumbotron">
+            <div class="container">
+             <h1><%= page.name %><img src="/assets/<%= @websites.logo %>" width="150" class="logo" ></h1>
+             <h4><em>"Where everyone is someone special"</em></h4>
+
             </div>
+          </div>
+          <% @sections.where(:visible => true).sort_by{|section| section.position}.each do |section| %>
+            <% if (section.page_id == page.id) %>
+              <div class="row col-xs-6 <%= section.name %>">
+                <div class="container-fluid">
+                <div class="well">
+                  <%= section.content.html_safe %>
+                </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <div class="col-xs-1"></div>
       </div>
-      <div class="col-xs-1"></div>
+    </section>
+  <% end %>
+
+  <nav>
+    <ul>
+      <% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
+        <li><a href="#<%= page.link %>"><%= page.name %></a></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <footer>
+    <div class="footer">
+      <%= @websites.footer %>
     </div>
-  </section>
+  </footer>
+
+<% else %>
+
+  <nav>
+    <ul>
+      <% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
+        <li><a href="#<%= page.link %>"><%= page.name %></a></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <footer>
+    <div class="footer">
+      Copyright © 2015. All Rights Reserved.
+    </div>
+  </footer>
+
 <% end %>
-
-<nav>
-  <ul>
-    <% @pages.where(:visible => true).sort_by{|page| page.position}.each do |page| %>
-      <li><a href="#<%= page.link %>"><%= page.name %></a></li>
-    <% end %>
-  </ul>
-</nav>
-
-<footer>
-  <div class="footer">
-    Copyright © 2015. All Rights Reserved.
-  </div>
-</footer>
 
 <%= @websites.inspect %>

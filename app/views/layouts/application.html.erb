@@ -12,16 +12,16 @@
 }
 
 <% @pages.each do |page| %>
-
   <% @pages.sort_by{|page| page.position}.each_with_index do |page, index| %>
 
-#<%= page.link %> {  
-  background: <%= page.background %>;
-}
-/*#home {
-  background-image: url('http://kenstonlocal.org/tes/wp-content/uploads/2015/01/kids-line.jpg');
-  background-size: cover;
-}*/
+  #<%= page.link %> {  
+    background: <%= page.background %>;
+  }
+  body {
+    background-image: url('<%= @websites.backgroundimage %>');
+    background-repeat: no-repeat;
+    background-attachment: fixed;;
+  }
 
   <% end %>
 <% end %>

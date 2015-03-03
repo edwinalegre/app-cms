@@ -9,7 +9,19 @@
 
   <%= f.label "Theme:" %><br>
   <% if @website.theme %>
-    <%= f.select :theme, options_for_select(["Select One", "Vertical", "Tabs"], :disabled => ["Select One"], :selected => @website.theme) %><br>
+    <%= f.select :theme, options_for_select(["Select One", "vertical", "tabs"], :disabled => ["Select One"], :selected => @website.theme) %><br>
   <% else %>
-    <%= f.select :theme, options_for_select(["Select One", "Vertical", "Tabs"], :disabled => ["Select One"], :selected => params[:website][:theme]) %><br>
+    <%= f.select :theme, options_for_select(["Select One", "vertical", "tabs"], :disabled => ["Select One"], :selected => params[:website][:theme]) %><br>
   <% end %>
+
+  <%= f.label "Tagline:" %><br>
+  <%= f.text_field :tagline %><br>
+
+  <%= f.label "Logo:" %><br>
+  <%= f.text_field :logo %><br>
+
+  <%= f.label "Background Image:" %><br>
+  <%= f.text_field :backgroundimage %><br>
+
+  <%= f.label "Footer:" %><br>
+  <%= f.text_field :footer %><br>
