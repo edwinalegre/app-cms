@@ -7,7 +7,8 @@
       <div class="col-xs-10">
         <div class="jumbotron">
           <div class="container">
-           <h1><%= page.name %></h1>
+           <h1><%= page.name %><img src="/assets/logo.png" width="150" class="logo" ></h1>
+
           </div>
         </div>
         <% @sections.sort_by{|section| section.position}.each do |section| %>

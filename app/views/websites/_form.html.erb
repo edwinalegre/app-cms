@@ -6,3 +6,10 @@
 
   <%= f.label "Name:" %><br>
   <%= f.text_field :name %><br>
+
+  <%= f.label "Theme:" %><br>
+  <% if @website.theme %>
+    <%= f.select :theme, options_for_select(["Select One", "Vertical", "Tabs"], :disabled => ["Select One"], :selected => @website.theme) %><br>
+  <% else %>
+    <%= f.select :theme, options_for_select(["Select One", "Vertical", "Tabs"], :disabled => ["Select One"], :selected => params[:website][:theme]) %><br>
+  <% end %>

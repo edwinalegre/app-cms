@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 
 <style>
+.logo{
+  float: right;
+}
+
 <% @pages.each do |page| %>
 
   <% @pages.sort_by{|page| page.position}.each_with_index do |page, index| %>
@@ -15,8 +19,8 @@
   background: <%= page.background %>;
 }
 /*#home {
-  background-image: url('http://images2.pixlis.com/background-image-vertical-lines-and-stripes-seamless-tileable-yellow-dark-orange-22r424.png');
-  background-size: repeat;
+  background-image: url('http://kenstonlocal.org/tes/wp-content/uploads/2015/01/kids-line.jpg');
+  background-size: cover;
 }*/
 
   <% end %>
