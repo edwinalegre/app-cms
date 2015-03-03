@@ -16,13 +16,42 @@
           </div>
           <% @sections.where(:visible => true).sort_by{|section| section.position}.each do |section| %>
             <% if (section.page_id == page.id) %>
-              <div class="row col-xs-<%= section.columns %> <%= section.name %>">
-                <div class="container-fluid">
-                <div class="well">
-                  <%= section.content.html_safe %>
-                </div>
-                </div>
-              </div>
+
+
+
+
+
+                    <% if (section.section_type == 'maps') %>
+                      <script type="text/javascript">
+                        function initialize() {
+                          var myLatlng = new google.maps.LatLng( <%= section.content %> );
+                          var mapOptions = {
+                            center: myLatlng,
+                            zoom: 8
+                          };
+                          var map = new google.maps.Map(document.getElementById('map-canvas'),
+                              mapOptions);
+                          var marker = new google.maps.Marker({
+                              position: myLatlng,
+                              map: map,
+                              title: '<%= @websites.name %>'
+                          });
+                        }
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                      </script>
+                      <div id="map-canvas" style="width: 98%; height: 100%"></div>
+                    <% else %>
+                      <div class="row col-xs-<%= section.columns %> <%= section.name %>">
+                        <div class="container-fluid">
+                          <div class="well">
+                            <%= section.content.html_safe %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+
+
+
             <% end %>
           <% end %>
         </div>

@@ -9,9 +9,9 @@
 
   <%= f.label "Section Type:" %><br>
   <% if @section.section_type %>
-    <%= f.select :section_type, options_for_select(["Select One", "content", "calendar", "reviews"], :disabled => ["Select One"], :selected => @section.section_type) %><br>
+    <%= f.select :section_type, options_for_select(["Select One", "content", "maps", "calendar", "reviews"], :disabled => ["Select One"], :selected => @section.section_type) %><br>
   <% else %>
-    <%= f.select :section_type, options_for_select(["Select One", "content", "calendar", "reviews"], :disabled => ["Select One"]) %><br>
+    <%= f.select :section_type, options_for_select(["Select One", "content", "maps", "calendar", "reviews"], :disabled => ["Select One"]) %><br>
     <!-- , :selected => params[:section][:section_type] -->
   <% end %>
 
