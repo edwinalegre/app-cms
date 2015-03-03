@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
 
+gem 'icalendar', '~> 2.2.2'
+
 gem 'carrierwave'
 
 gem 'faker', "~> 1.4.3"
@@ -46,7 +48,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem "factory_girl_rails", "~> 4.0"
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
