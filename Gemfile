@@ -30,8 +30,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
 
-gem 'icalendar', '~> 2.2.2'
-
 gem 'carrierwave'
 
 gem 'faker', "~> 1.4.3"
