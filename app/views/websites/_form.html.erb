@@ -5,23 +5,23 @@
 </ul>
 
   <%= f.label "Name:" %><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, class: 'form-control' %><br>
 
   <%= f.label "Theme:" %><br>
   <% if @website.theme %>
-    <%= f.select :theme, options_for_select(["Select One", "vertical", "tabs"], :disabled => ["Select One"], :selected => @website.theme) %><br>
+    <%= f.select :theme, options_for_select(["Select One", "vertical", "tabs"], :disabled => ["Select One"], :selected => @website.theme), class: 'form-control' %><br>
   <% else %>
-    <%= f.select :theme, options_for_select(["Select One", "vertical", "tabs"], :disabled => ["Select One"], :selected => params[:website][:theme]) %><br>
+    <%= f.select :theme, options_for_select(["Select One", "vertical", "tabs"], :disabled => ["Select One"], :selected => params[:website][:theme]), class: 'form-control' %><br>
   <% end %>
 
   <%= f.label "Tagline:" %><br>
-  <%= f.text_field :tagline %><br>
+  <%= f.text_field :tagline, class: 'form-control' %><br>
 
   <%= f.label "Logo:" %><br>
-  <%= f.text_field :logo %><br>
+  <%= f.text_field :logo, class: 'form-control' %><br>
 
   <%= f.label "Background Image:" %><br>
-  <%= f.text_field :backgroundimage %><br>
+  <%= f.text_field :backgroundimage, class: 'form-control' %><br>
 
   <%= f.label "Footer:" %><br>
-  <%= f.text_field :footer %><br>
+  <%= f.text_field :footer, class: 'form-control' %><br>

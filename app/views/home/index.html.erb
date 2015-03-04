@@ -9,7 +9,7 @@
         <div class="col-xs-10">
           <div class="jumbotron">
             <div class="container">
-             <h1><%= page.name %><img src="/assets/<%= @websites.logo %>" width="150" class="logo" ></h1>
+             <h1><%= page.name %><%= image_tag('logo.png', size: "140x90", class: "logo") %></h1>
              <h4><em><%= @websites.tagline %></em></h4>
 
             </div>

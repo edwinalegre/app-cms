@@ -1,14 +1,19 @@
-<h2>Manage Website</h2>
-<ul>
-  <% if @website %>
-    <li><%= link_to "Edit website", edit_website_path(@website) %></li>
-  <% else %>
-    <li><%= link_to "Create website", new_website_path %></li>
-  <% end %>
+<h3>Manage Website</h3>
 
+<table class="table">
   <% if @website %>
-    <li><%= link_to "Manage pages", pages_path %></li>
+  <tr>
+    <td><%= link_to "Edit website", edit_website_path(@website) %></td>
+  </tr>
+  <% else %>
+  <tr>
+    <td><%= link_to "Create website", new_website_path %></td>
+  </tr>
+  <% end %>
+  <% if @website %>
+  <tr>
+    <td><%= link_to "Manage pages", pages_path %></td>
     <!-- <li><%= link_to "Manage sections", sections_path %></li> -->
+  </tr>
   <% end %>
 </ul>
-

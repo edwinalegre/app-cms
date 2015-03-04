@@ -1,8 +1,9 @@
-<h2>Create Page</h2>
+<h3>Create Page</h3>
+
 <%= form_for(:page, :url => {:action => 'create', :website_id => @website.id}) do |f| %>
   
   <%= render(:partial => "form", :locals => {:f => f}) %>
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-default" %>
 
 <% end %>

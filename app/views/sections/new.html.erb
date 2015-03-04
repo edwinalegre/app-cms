@@ -1,10 +1,11 @@
-<h2>Create Section</h2>
+<h3>Create Section</h3>
+
 <%= form_for(:section, :url => {:action => 'create', :page_id => @page.id}) do |f| %>
   
   <%= render(:partial => "form", :locals => {:f => f}) %>
 
   <%= f.hidden_field(:page_id, :value => @page.id) %>
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-default" %>
 
 <% end %>

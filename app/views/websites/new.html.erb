@@ -1,9 +1,9 @@
-<h2>Create Website</h2>
+<h3>Create Website</h3>
 
 <%= form_for(@website) do |f| %>
 
   <%= render(:partial => "form", :locals => {:f => f}) %>
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-default" %>
 
 <% end %>

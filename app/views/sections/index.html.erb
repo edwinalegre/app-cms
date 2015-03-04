@@ -1,11 +1,28 @@
-<h2>Manage Sections</h2>
-<ul>
-    <li><%= link_to "Create sections", new_section_path %></li>
-</ul>
+<h3>Manage Sections</h3>
 
-<h2>Sections</h2>
-<ul>
+<table class="table">
+    <td><%= link_to "Create sections", new_section_path %>/td>
+</table>
+
+<h3>Sections</h3>
+
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Position</th>
+    <th>Visible</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
   <% @section.sort_by{|section| section.position}.each do |section| %>
-  <li><%= link_to (section.name), edit_section_path(:id => section.id,:page_id => page.id) %></li>
+  <tr>
+    <td><%= section.name %></td>
+    <td><%= section.section_type %></td>
+    <td><%= section.position %></td>
+    <td><%= section.visible %></td>
+    <td><%= link_to "edit", edit_section_path(:id => section.id,:page_id => page.id) %></td>
+  </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>

@@ -78,3 +78,7 @@ footer {
   }
 
 }
+
+.form-control {
+  width: 75% !important;
+}
