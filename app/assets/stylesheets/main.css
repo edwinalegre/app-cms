@@ -87,3 +87,10 @@ footer {
 .admin-footer {
   background-color: #FFF;
 }
+
+.well2 {
+  background-color: #fff;
+  opacity: 0.8;
+  padding: 10px;
+  margin: 10px;
+}

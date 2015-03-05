@@ -17,36 +17,32 @@
           <% @sections.where(:visible => true).sort_by{|section| section.position}.each do |section| %>
             <% if (section.page_id == page.id) %>
 
-                    <% if (section.section_type == 'maps') %>
-                      <script type="text/javascript">
-                        function initialize() {
-                          var myLatlng = new google.maps.LatLng( <%= section.content %> );
-                          var mapOptions = {
-                            center: myLatlng,
-                            zoom: 8
-                          };
-                          var map = new google.maps.Map(document.getElementById('map-canvas'),
-                              mapOptions);
-                          var marker = new google.maps.Marker({
-                              position: myLatlng,
-                              map: map,
-                              title: '<%= @websites.name %>'
-                          });
-                        }
-                        google.maps.event.addDomListener(window, 'load', initialize);
-                      </script>
-                      <div id="map-canvas" style="width: 98%; height: 100%"></div>
-                    <% else %>
-                      <div class="row col-md-<%= section.columns %> <%= section.name %>">
-                        <div class="container-fluid">
-                          <div class="well">
-                            <%= section.content.html_safe %>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-
-
+              <% if (section.section_type == 'maps') %>
+                <script type="text/javascript">
+                  function initialize() {
+                    var myLatlng = new google.maps.LatLng( <%= section.content %> );
+                    var mapOptions = {
+                      center: myLatlng,
+                      zoom: 8
+                    };
+                    var map = new google.maps.Map(document.getElementById('map-canvas'),
+                        mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: '<%= @websites.name %>'
+                    });
+                  }
+                  google.maps.event.addDomListener(window, 'load', initialize);
+                </script>
+                <div id="map-canvas" style="width: 98%; height: 100%"></div>
+              <% else %>
+                <div class="col-md-<%= section.columns %> <%= section.name %>">
+                  <div class="well">
+                    <%= section.content.html_safe %>
+                  </div>
+                </div>
+              <% end %>
 
             <% end %>
           <% end %>
@@ -116,29 +112,26 @@
         </div>
       <% end %>
 
-
-
     <% end %>
     <% end %>
     </div>
   <% end %>
 </div>
 
-
 <% end %>
 
-  <footer>
-    <div class="col-md-4">
-    </div>
+<footer>
+  <div class="col-md-4">
+  </div>
 
-    <div class="footer col-md-3">
-      <%= @websites.footer %>
-    </div>
-    <div class="col-md-5">
-      <% if @websites.facebook? %><a href="<%= @websites.facebook %>" target="_blank"><i class="fa fa-facebook-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.instagram? %><a href="<%= @websites.instagram %>" target="_blank"><i class="fa fa-instagram fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.pinterest? %><a href="<%= @websites.pinterest %>" target="_blank"><i class="fa fa-pinterest-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.twitter? %><a href="<%= @websites.twitter %>" target="_blank"><i class="fa fa-twitter-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.youtube? %><a href="<%= @websites.youtube %>" target="_blank"><i class="fa fa-youtube-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-    </div>
-  </footer>
+  <div class="footer col-md-3">
+    <%= @websites.footer %>
+  </div>
+  <div class="col-md-5">
+    <% if @websites.facebook? %><a href="<%= @websites.facebook %>" target="_blank"><i class="fa fa-facebook-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+    <% if @websites.instagram? %><a href="<%= @websites.instagram %>" target="_blank"><i class="fa fa-instagram fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+    <% if @websites.pinterest? %><a href="<%= @websites.pinterest %>" target="_blank"><i class="fa fa-pinterest-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+    <% if @websites.twitter? %><a href="<%= @websites.twitter %>" target="_blank"><i class="fa fa-twitter-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+    <% if @websites.youtube? %><a href="<%= @websites.youtube %>" target="_blank"><i class="fa fa-youtube-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+  </div>
+</footer>
