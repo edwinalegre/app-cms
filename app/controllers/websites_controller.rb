@@ -37,7 +37,7 @@ class WebsitesController < ApplicationController
   private
 
   def form_params
-    params.require(:website).permit(:name, :theme, :tagline, :logo, :backgroundimage, :footer)
+    params.require(:website).permit(:name, :theme, :tagline, :logo, :backgroundimage, :facebook, :instagram, :pinterest, :youtube, :twitter, :footer)
   end
 
 end

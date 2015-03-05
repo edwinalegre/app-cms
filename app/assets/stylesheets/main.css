@@ -1,3 +1,4 @@
+
 * {margin: 0; padding: 0;}
 
 a {text-decoration: none;}
@@ -81,4 +82,8 @@ footer {
 
 .form-control {
   width: 75% !important;
+}
+
+.admin-footer {
+  background-color: #FFF;
 }

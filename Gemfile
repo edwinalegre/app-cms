@@ -38,6 +38,7 @@ gem 'acts_as_list', '~> 0.3.0'
 
 gem 'google-api-client'
 
+gem 'font-awesome-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
