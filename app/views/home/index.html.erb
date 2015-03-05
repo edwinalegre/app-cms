@@ -135,10 +135,10 @@
       <%= @websites.footer %>
     </div>
     <div class="col-md-5">
-      <% if @websites.facebook != '' %><a href="<%= @websites.facebook %>" target="_blank"><i class="fa fa-facebook-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.instagram != '' %><a href="<%= @websites.instagram %>" target="_blank"><i class="fa fa-instagram fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.pinterest != '' %><a href="<%= @websites.pinterest %>" target="_blank"><i class="fa fa-pinterest-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.twitter != '' %><a href="<%= @websites.twitter %>" target="_blank"><i class="fa fa-twitter-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
-      <% if @websites.youtube != '' %><a href="<%= @websites.youtube %>" target="_blank"><i class="fa fa-youtube-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+      <% if @websites.facebook? %><a href="<%= @websites.facebook %>" target="_blank"><i class="fa fa-facebook-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+      <% if @websites.instagram? %><a href="<%= @websites.instagram %>" target="_blank"><i class="fa fa-instagram fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+      <% if @websites.pinterest? %><a href="<%= @websites.pinterest %>" target="_blank"><i class="fa fa-pinterest-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+      <% if @websites.twitter? %><a href="<%= @websites.twitter %>" target="_blank"><i class="fa fa-twitter-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
+      <% if @websites.youtube? %><a href="<%= @websites.youtube %>" target="_blank"><i class="fa fa-youtube-square fa-3x" style="margin: 15px; color: #FFFFFF;"></i></a><% end %>
     </div>
   </footer>
