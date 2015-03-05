@@ -1,0 +1,9 @@
+<h3>Edit User</h3>
+
+<%= form_for(@user) do |f| %>
+  
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+
+  <%= f.submit "Save", class: "btn btn-default" %>
+
+<% end %>

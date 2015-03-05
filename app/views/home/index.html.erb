@@ -5,8 +5,8 @@
 
     <section id="<%= page.link %>">
       <div class="row">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
           <div class="jumbotron">
             <div class="container">
              <h1><%= page.name %><%= image_tag('logo.png', size: "140x90", class: "logo") %></h1>
@@ -37,7 +37,7 @@
                       </script>
                       <div id="map-canvas" style="width: 98%; height: 100%"></div>
                     <% else %>
-                      <div class="row col-xs-<%= section.columns %> <%= section.name %>">
+                      <div class="row col-md-<%= section.columns %> <%= section.name %>">
                         <div class="container-fluid">
                           <div class="well">
                             <%= section.content.html_safe %>
@@ -51,7 +51,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="col-xs-1"></div>
+        <div class="col-md-1"></div>
       </div>
     </section>
   <% end %>
@@ -84,8 +84,8 @@
 
           <div class="page-header">
             <div class="container">
-    <h1><%= page.name %><img src="/assets/<%= @websites.logo %>" width="150" class="logo" ></h1>
-    <h4><em><%= @websites.tagline %></em></h4>
+              <h1><%= page.name %><img src="/assets/<%= @websites.logo %>" width="150" class="logo" ></h1>
+              <h4><em><%= @websites.tagline %></em></h4>
             </div>
           </div>
     <% @sections.where(:visible => true).sort_by{|section| section.position}.each do |section| %>
@@ -111,7 +111,7 @@
         </script>
         <div id="map-canvas" style="width: 80%; height: 50%"></div>
       <% else %>
-        <div class="row col-xs-<%= section.columns %> <%= section.name %>">
+        <div class="row col-md-<%= section.columns %> <%= section.name %>">
           <div class="container-fluid">
             <div class="panel panel-default">
              <div class="panel-body">

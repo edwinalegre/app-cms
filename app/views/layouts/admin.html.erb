@@ -7,21 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<br>  
-<div class="well container-fluid col-xs-8 col-xs-offset-2">
+ <br>  
+<div class="well container-fluid col-md-8 col-xs-offset-2">
   <h1>Admin</h1>
-  <p class="text-right"><%= link_to("<< Back to Main", {:controller => 'admin', :action => 'index'}) %></p>
+
+    <p class="text-right">
+      &nbsp;<% if request.env['PATH_INFO'] == "/admin" || request.env['PATH_INFO'] == "/sessions/new" || request.env['PATH_INFO'] == "/login" %><% else %><%= link_to("<< Back to Main", {:controller => 'admin', :action => 'index'}) %> | <% end %>
+        <% if request.env['PATH_INFO'] != "/login" %><%= link_to "Logout", :logout %><% end %>
+    </p>
 
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>" role="alert">
       <%= value %>
     </div>
   <% end %>
-
+<% if session[:user_id] != nil %>
   <%= yield %>
+<% else %>
 
+<h2>Login</h2>
+
+<%= form_for :user, url: '/login' do |f| %>
+  <%= f.label :name, "Email:" %><br />
+  <%= f.text_field :email, class: 'form-control' %><br />
+  <%= f.label :name, "Password:" %><br />
+  <%= f.password_field :password, class: 'form-control' %><br /><br>
+  <%= f.submit "Login", class: "btn btn-default" %>
+<% end %>
+
+
+<% end %>
   <%#= params %>
 </div>
-
 </body>
 </html>

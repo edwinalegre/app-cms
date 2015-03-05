@@ -10,6 +10,7 @@
 
   body {
     background-image: url('<%= @websites.backgroundimage %>');
+    background-size: cover;
   }
 
    .content > div {
@@ -25,7 +26,7 @@
 <% @pages.each do |page| %>
 
   #<%= page.link %> {  
-    background: <%= page.background %>;
+    background: <%= page.background %>
   }
 
    #<%= page.link %>tab:checked ~ .content #<%= page.link %>content{
@@ -39,16 +40,12 @@
 
 </style>
 
-<script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=<%= @key %>">
-</script>
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= @key %>"></script>
 
 </head>
 <body>
 
   <%= yield %>
-
 
 <% if @websites.theme == 'vertical' %>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -68,5 +65,6 @@
 </script>
 <% end %>
 
+  <p align="center"><%= link_to "Admin Login", {:controller => 'sessions', :action => 'new'} %></p>
 </body>
 </html>
