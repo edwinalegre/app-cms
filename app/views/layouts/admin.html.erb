@@ -21,22 +21,9 @@
       <%= value %>
     </div>
   <% end %>
-<% if session[:user_id] != nil %>
   <%= yield %>
-<% else %>
-
-<h2>Login</h2>
-
-<%= form_for :user, url: '/login' do |f| %>
-  <%= f.label :name, "Email:" %><br />
-  <%= f.text_field :email, class: 'form-control' %><br />
-  <%= f.label :name, "Password:" %><br />
-  <%= f.password_field :password, class: 'form-control' %><br /><br>
-  <%= f.submit "Login", class: "btn btn-default" %>
-<% end %>
 
 
-<% end %>
   <%#= params %>
 </div>
 </body>
