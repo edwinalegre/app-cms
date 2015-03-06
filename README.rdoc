@@ -1,28 +1,16 @@
-== README
+##APP CMS - WDI_DTLA1 Project 4 - Edwin Alegre
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+APP CMS is a website where users can create and manaage a website using a custom management system.  The app has two layers, 1 for anyone to few the main website and a backend for the admin to make edits without the use of a developer. It allows an administrator as an admin to create content for the website by building out pages and sections.  The cms currently only has two themes to change page layouts.
 
-Things you may want to cover:
+Check it out here: https://abcprecschool.herokuapp.com/
 
-* Ruby version
+This project was built as a single page website with a rails backend and a postgres db.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Todos
+-----
+* Integrate address to map
+* Include calendar functionality
+* Add reviews
+* Fix sections positioning and markups
+* Fix section types to page types
+* Make themes more modularized
