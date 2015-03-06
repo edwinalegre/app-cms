@@ -6,10 +6,10 @@ class WebsitesController < ApplicationController
     @website = Website.first
   end
 
+# Creates a new website
   def new
     @website = Website.new
   end
-
   def create
     @website = Website.new(form_params)
     if @website.save
@@ -20,10 +20,10 @@ class WebsitesController < ApplicationController
     end
   end
 
+# Update and edits website main settings
   def edit
     @website = Website.find(params[:id])
   end
-
   def update
     @website = Website.find(params[:id])
     if @website.update(form_params)

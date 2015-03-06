@@ -11,11 +11,15 @@
 <div class="well container-fluid col-md-8 col-xs-offset-2">
   <h1>Admin</h1>
 
-    <p class="text-right">
-      &nbsp;<% if request.env['PATH_INFO'] == "/admin" || request.env['PATH_INFO'] == "/sessions/new" || request.env['PATH_INFO'] == "/login" %><% else %><%= link_to("<< Back to Main", {:controller => 'admin', :action => 'index'}) %> | <% end %>
-        <% if request.env['PATH_INFO'] != "/login" %><%= link_to "Logout", :logout %><% end %>
-    </p>
+<!-- Admin nagivation display -->
+  <p class="text-right">&nbsp;
+    <% if request.env['PATH_INFO'] == "/admin" || request.env['PATH_INFO'] == "/sessions/new" || request.env['PATH_INFO'] == "/login" %>
+    <% else %><%= link_to("<< Back to Main", {:controller => 'admin', :action => 'index'}) %> | 
+    <% end %>
+    <% if request.env['PATH_INFO'] != "/login" %><%= link_to "Logout", :logout %><% end %>
+  </p>
 
+<!-- Page alerts if page is successful save or if there's any errors -->
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>" role="alert">
       <%= value %>
@@ -25,8 +29,7 @@
   <%= yield %>
 <% else %>
 
-<h2>Login</h2>
-
+<!-- Admin login form -->
 <%= form_for :user, url: '/login' do |f| %>
   <%= f.label :name, "Email:" %><br />
   <%= f.text_field :email, class: 'form-control' %><br />

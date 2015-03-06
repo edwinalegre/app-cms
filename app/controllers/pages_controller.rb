@@ -2,22 +2,22 @@ class PagesController < ApplicationController
 
   layout 'admin'
   
+# Displays the page views for pages
   def index
     @page = Page.all
     @website = Website.first
   end
-
   def show
     @page = Page.find(params[:id])
     @section = Section.where({:page_id => @page.id})
   end
 
+# Creates new website, setting page association to website and checking the page quantity
   def new
     @website = Website.first
     @page = Page.new({:website_id => @website.id})
     @page_count = Page.count + 1
   end
-
   def create
     @page = Page.new(form_params)
     if @page.save
@@ -28,12 +28,12 @@ class PagesController < ApplicationController
     end
   end
 
+# Updates pages when edited
   def edit
     @website = Website.first
     @page = Page.find(params[:id])
     @page_count = Page.count
   end
-
   def update
     @page = Page.find(params[:id])
     if @page.update(form_params)

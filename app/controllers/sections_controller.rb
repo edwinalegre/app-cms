@@ -2,18 +2,19 @@ class SectionsController < ApplicationController
 
   layout 'admin'
 
+# Displays the section views for sections
   def index
     @section = Section.all
     @page = Page.find(params[:id])
     @website = Website.first
   end
 
+# Creates new section, setting section association to a page and checking the section quantity
   def new
     @page = Page.find(params[:id])
     @section = Section.new
     @section_count = Section.count + 1
   end
-
   def create
     @section = Section.new(form_params)
     if @section.save
@@ -24,11 +25,11 @@ class SectionsController < ApplicationController
     end
   end
 
+# Updates sections when edited
   def edit
     @section = Section.find(params[:id])
     @section_count = Section.count
   end
-
   def update
     @section = Section.find(params[:id])
     if @section.update(form_params)

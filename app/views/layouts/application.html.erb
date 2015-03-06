@@ -13,26 +13,24 @@
     background-size: 100%;
   }
 
-   .content > div {
+  .content > div {
     display: none;
     height: 85vh;
-   }
+  }
 
    input {display: none;}
    label {display: inline-block; padding: 15px 25px; text-align: center;}
    label:hover {background: #ccc;}
    input:checked + label {background: #ccc;}
 
+// Generates dynamic tabs and background css properties
 <% @pages.each do |page| %>
-
   #<%= page.link %> {  
     background: <%= page.background %>
   }
-
    #<%= page.link %>tab:checked ~ .content #<%= page.link %>content{
      display: block;
    }
-
 <% end %>
 
   html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
@@ -45,25 +43,27 @@
 </head>
 <body>
 
-  <%= yield %>
+<%= yield %>
 
+<!-- Navigation scrolling fixed to top of screen -->
 <% if @websites.theme == 'vertical' %>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-   $(document).ready(function(){
-     $(window).bind('scroll', function() {
-     var navHeight = $( window ).height() - 70;
-       if ($(window).scrollTop() > navHeight) {
-         $('nav').addClass('fixed');
-       }
-       else {
-         $('nav').removeClass('fixed');
-       }
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+     $(document).ready(function(){
+       $(window).bind('scroll', function() {
+       var navHeight = $( window ).height() - 70;
+         if ($(window).scrollTop() > navHeight) {
+           $('nav').addClass('fixed');
+         }
+         else {
+           $('nav').removeClass('fixed');
+         }
+      });
     });
-  });
-</script>
+  </script>
 <% end %>
 
+<!-- Admin login link in footer -->
   <p align="center" class="admin-footer"><%= link_to "Admin Login", {:controller => 'sessions', :action => 'new'} %></p>
 </body>
 </html>

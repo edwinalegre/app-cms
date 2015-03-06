@@ -12,7 +12,6 @@
     <%= f.select :section_type, options_for_select(["Select One", "content", "maps", "calendar", "reviews"], :disabled => ["Select One"], :selected => @section.section_type), class: 'form-control' %><br>
   <% else %>
     <%= f.select :section_type, options_for_select(["Select One", "content", "maps", "calendar", "reviews"], :disabled => ["Select One"]), class: 'form-control' %><br>
-    <!-- , :selected => params[:section][:section_type] -->
   <% end %>
 
   <%= f.label(:content) %><br>
